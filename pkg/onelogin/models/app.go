@@ -119,12 +119,12 @@ const (
 )
 
 type AppQuery struct {
-	Limit       string  `json:"limit,omitempty"`
-	Page        string  `json:"page,omitempty"`
-	Cursor      string  `json:"cursor,omitempty"`
-	Name        *string `json:"name,omitempty"`
-	ConnectorID *int    `json:"connector_id,omitempty"`
-	AuthMethod  *int    `json:"auth_method,omitempty"`
+	Limit       string  `url:"limit,omitempty"`
+	Page        string  `url:"page,omitempty"`
+	Cursor      string  `url:"cursor,omitempty"`
+	Name        *string `url:"name,omitempty"`
+	ConnectorID *int    `url:"connector_id,omitempty"`
+	AuthMethod  *int    `url:"auth_method,omitempty"`
 }
 
 func (q *AppQuery) GetKeyValidators() map[string]func(interface{}) bool {
