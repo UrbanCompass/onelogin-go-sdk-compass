@@ -28,10 +28,10 @@ const (
 
 // SmartHookQuery represents available query parameters
 type SmartHookQuery struct {
-	Limit  string `json:"limit,omitempty"`
-	Page   string `json:"page,omitempty"`
-	Cursor string `json:"cursor,omitempty"`
-	Type   string `json:"type,omitempty"`
+	Limit  string `url:"limit,omitempty"`
+	Page   string `url:"page,omitempty"`
+	Cursor string `url:"cursor,omitempty"`
+	Type   string `url:"type,omitempty"`
 }
 
 // SmartHook represents a OneLogin SmartHook with associated resource data
@@ -62,10 +62,10 @@ type Options struct {
 
 // SmartHookEnvVarQuery represents available query parameters
 type SmartHookEnvVarQuery struct {
-	Limit  string `json:"limit,omitempty"`
-	Page   string `json:"page,omitempty"`
-	Cursor string `json:"cursor,omitempty"`
-	Type   string `json:"type,omitempty"`
+	Limit  string `url:"limit,omitempty"`
+	Page   string `url:"page,omitempty"`
+	Cursor string `url:"cursor,omitempty"`
+	Type   string `url:"type,omitempty"`
 }
 
 // EnvVar represents an Environment Variable to be associated with a SmartHook
