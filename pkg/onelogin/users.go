@@ -49,6 +49,26 @@ func (sdk *OneloginSDK) GetUsers(query mod.Queryable) (interface{}, error) {
 	return utl.CheckHTTPResponse(resp)
 }
 
+// was ListUsers
+func (sdk *OneloginSDK) GetUsersWithCursor(query mod.Queryable) (interface{}, *string, error) {
+	p, err := utl.BuildAPIPath(UserPathV2)
+	if err != nil {
+		return nil, nil, err
+	}
+
+	// Validate query parameters
+	validators := query.GetKeyValidators()
+	if !utl.ValidateQueryParams(query, validators) {
+		return nil, nil, errors.New("invalid query parameters")
+	}
+
+	resp, err := sdk.Client.Get(&p, query)
+	if err != nil {
+		return nil, nil, err
+	}
+	return utl.CheckHTTPResponseWithCursor(resp)
+}
+
 func (sdk *OneloginSDK) GetUserByID(id int, queryParams mod.Queryable) (interface{}, error) {
 	p, err := utl.BuildAPIPath(UserPathV2, id)
 	if err != nil {
