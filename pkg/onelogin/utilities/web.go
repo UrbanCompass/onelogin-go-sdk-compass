@@ -8,6 +8,7 @@ import (
 	"net/url"
 	"strings"
 
+	querystring "github.com/google/go-querystring/query"
 	olerror "github.com/onelogin/onelogin-go-sdk/v4/pkg/onelogin/error"
 )
 
@@ -57,6 +58,62 @@ func CheckHTTPResponse(resp *http.Response) (interface{}, error) {
 	return data, nil
 }
 
+// receive http response, check error code status, if good return json of resp.Body
+// else return error
+func CheckHTTPResponseWithCursor(resp *http.Response) (interface{}, *string, error) {
+	// Check if the request was successful
+	if resp.StatusCode != http.StatusOK && resp.StatusCode != http.StatusCreated {
+		return nil, nil, fmt.Errorf("request failed with status: %d", resp.StatusCode)
+	}
+
+	// Read the response body
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		return nil, nil, fmt.Errorf("failed to read response body: %w", err)
+	}
+
+	// Close the response body
+	err = resp.Body.Close()
+	if err != nil {
+		return nil, nil, fmt.Errorf("failed to close response body: %w", err)
+	}
+
+	// Try to unmarshal the response body into a map[string]interface{} or []interface{}
+	var data interface{}
+	bodyStr := string(body)
+	//log.Printf("Response body: %s\n", bodyStr)
+	if strings.HasPrefix(bodyStr, "[") {
+		var slice []interface{}
+		err = json.Unmarshal(body, &slice)
+		if err != nil {
+			return nil, nil, fmt.Errorf("failed to unmarshal response body into []interface{}: %w", err)
+		}
+		data = slice
+	} else if strings.HasPrefix(bodyStr, "{") {
+		var dict map[string]interface{}
+		err = json.Unmarshal(body, &dict)
+		if err != nil {
+			return nil, nil, fmt.Errorf("failed to unmarshal response body into map[string]interface{}: %w", err)
+		}
+		data = dict
+	} else {
+		data = bodyStr
+	}
+
+	var cursor *string
+	if resp.Header != nil {
+		afterCursor := resp.Header.Get("After-Cursor")
+		if afterCursor == "" {
+			cursor = nil
+		} else {
+			cursor = &afterCursor
+		}
+	}
+
+	//log.Printf("Response body unmarshaled successfully: %v\n", data)
+	return data, cursor, nil
+}
+
 func BuildAPIPath(parts ...interface{}) (string, error) {
 	var path string
 	for _, part := range parts {
@@ -102,16 +159,12 @@ func AddQueryToPath(path string, query interface{}) (string, error) {
 func queryToValues(query interface{}) (url.Values, error) {
 	values := url.Values{}
 
-	// Convert query parameters to URL-encoded string
-	if query != nil {
-		queryBytes, err := json.Marshal(query)
-		if err != nil {
-			return nil, err
-		}
-		err = json.Unmarshal(queryBytes, &values)
-		if err != nil {
-			return nil, err
-		}
+	if query == nil {
+		return values, nil
+	}
+	values, err := querystring.Values(query)
+	if err != nil {
+		return nil, err
 	}
 
 	return values, nil
