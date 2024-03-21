@@ -23,25 +23,25 @@ const (
 
 // UserQuery represents available query parameters
 type UserQuery struct {
-	Limit          string     `json:"limit,omitempty",url:"limit,omitempty"`
-	Page           string     `json:"page,omitempty",url:"page,omitempty"`
-	Cursor         string     `json:"cursor,omitempty",url:"cursor,omitempty"`
-	CreatedSince   *time.Time `json:"created_since,omitempty",url:"created_since,omitempty"`
-	CreatedUntil   *time.Time `json:"created_until,omitempty",url:"created_until,omitempty"`
-	UpdatedSince   *time.Time `json:"updated_since,omitempty",url:"updated_since,omitempty"`
-	UpdatedUntil   *time.Time `json:"updated_until,omitempty",url:"updated_until,omitempty"`
-	LastLoginSince *time.Time `json:"last_login_since,omitempty",url:"last_login_since,omitempty"`
-	LastLoginUntil *time.Time `json:"last_login_until,omitempty",url:"last_login_until,omitempty"`
-	Firstname      *string    `json:"firstname,omitempty",url:"firstname,omitempty"`
-	Lastname       *string    `json:"lastname,omitempty",url:"lastname,omitempty"`
-	Email          *string    `json:"email,omitempty",url:"email,omitempty"`
-	Username       *string    `json:"username,omitempty",url:"username,omitempty"`
-	Samaccountname *string    `json:"samaccountname,omitempty",url:"samaccountname,omitempty"`
-	DirectoryID    *string    `json:"directory_id,omitempty",url:"directory_id,omitempty"`
-	ExternalID     *string    `json:"external_id,omitempty",url:"external_id,omitempty"`
-	AppID          *string    `json:"app_id,omitempty",url:"app_id,omitempty"`
-	UserIDs        *string    `json:"user_ids,omitempty",url:"user_ids,omitempty"`
-	Fields         *string    `json:"fields,omitempty",url:"fields,omitempty"`
+	Limit          string     `url:"limit,omitempty"`
+	Page           string     `url:"page,omitempty"`
+	Cursor         string     `url:"cursor,omitempty"`
+	CreatedSince   *time.Time `url:"created_since,omitempty"`
+	CreatedUntil   *time.Time `url:"created_until,omitempty"`
+	UpdatedSince   *time.Time `url:"updated_since,omitempty"`
+	UpdatedUntil   *time.Time `url:"updated_until,omitempty"`
+	LastLoginSince *time.Time `url:"last_login_since,omitempty"`
+	LastLoginUntil *time.Time `url:"last_login_until,omitempty"`
+	Firstname      *string    `url:"firstname,omitempty"`
+	Lastname       *string    `url:"lastname,omitempty"`
+	Email          *string    `url:"email,omitempty"`
+	Username       *string    `url:"username,omitempty"`
+	Samaccountname *string    `url:"samaccountname,omitempty"`
+	DirectoryID    *string    `url:"directory_id,omitempty"`
+	ExternalID     *string    `url:"external_id,omitempty"`
+	AppID          *string    `url:"app_id,omitempty"`
+	UserIDs        *string    `url:"user_ids,omitempty"`
+	Fields         *string    `url:"fields,omitempty"`
 }
 
 // User represents a OneLogin User
