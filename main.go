@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/onelogin/onelogin-go-sdk/v4/pkg/onelogin"
-	"github.com/onelogin/onelogin-go-sdk/v4/pkg/onelogin/models"
+	"github.com/UrbanCompass/onelogin-go-sdk-compass/v4/pkg/onelogin"
+	"github.com/UrbanCompass/onelogin-go-sdk-compass/v4/pkg/onelogin/models"
 )
 
 func main() {
