@@ -1,3 +1,9 @@
+# Compass Fork
+
+Fixing the following issues:
+- Doesn't support pagination.  Adding support for AfterCursor.
+- Errors when setting query parameters.
+
 
 # Onelogin Go SDK
 
