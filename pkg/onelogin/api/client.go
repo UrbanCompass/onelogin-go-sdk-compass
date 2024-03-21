@@ -12,10 +12,10 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/onelogin/onelogin-go-sdk/v4/pkg/onelogin/authentication"
-	olerror "github.com/onelogin/onelogin-go-sdk/v4/pkg/onelogin/error"
-	mod "github.com/onelogin/onelogin-go-sdk/v4/pkg/onelogin/models"
-	utl "github.com/onelogin/onelogin-go-sdk/v4/pkg/onelogin/utilities"
+	"github.com/UrbanCompass/onelogin-go-sdk-compass/v4/pkg/onelogin/authentication"
+	olerror "github.com/UrbanCompass/onelogin-go-sdk-compass/v4/pkg/onelogin/error"
+	mod "github.com/UrbanCompass/onelogin-go-sdk-compass/v4/pkg/onelogin/models"
+	utl "github.com/UrbanCompass/onelogin-go-sdk-compass/v4/pkg/onelogin/utilities"
 )
 
 // Client represents the API client.

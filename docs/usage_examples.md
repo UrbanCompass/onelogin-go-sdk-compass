@@ -5,8 +5,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/onelogin/onelogin-go-sdk/v4/pkg/onelogin/models"
-	"github.com/onelogin/onelogin-go-sdk/v4/pkg/onelogin"
+	"github.com/UrbanCompass/onelogin-go-sdk-compass/v4/pkg/onelogin/models"
+	"github.com/UrbanCompass/onelogin-go-sdk-compass/v4/pkg/onelogin"
 )
 
 func main() {
@@ -38,8 +38,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/onelogin/onelogin-go-sdk/v4/pkg/onelogin/models"
-	"github.com/onelogin/onelogin-go-sdk/v4/pkg/onelogin"
+	"github.com/UrbanCompass/onelogin-go-sdk-compass/v4/pkg/onelogin/models"
+	"github.com/UrbanCompass/onelogin-go-sdk-compass/v4/pkg/onelogin"
 )
 
 func main() {
@@ -69,8 +69,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/onelogin/onelogin-go-sdk/v4/pkg/onelogin/models"
-	"github.com/onelogin/onelogin-go-sdk/v4/pkg/onelogin"
+	"github.com/UrbanCompass/onelogin-go-sdk-compass/v4/pkg/onelogin/models"
+	"github.com/UrbanCompass/onelogin-go-sdk-compass/v4/pkg/onelogin"
 )
 
 func main() {
@@ -96,8 +96,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/onelogin/onelogin-go-sdk/v4/pkg/onelogin/models"
-	"github.com/onelogin/onelogin-go-sdk/v4/pkg/onelogin"
+	"github.com/UrbanCompass/onelogin-go-sdk-compass/v4/pkg/onelogin/models"
+	"github.com/UrbanCompass/onelogin-go-sdk-compass/v4/pkg/onelogin"
 )
 
 func main() {
@@ -131,8 +131,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/onelogin/onelogin-go-sdk/v4/pkg/onelogin/models"
-	"github.com/onelogin/onelogin-go-sdk/v4/pkg/onelogin"
+	"github.com/UrbanCompass/onelogin-go-sdk-compass/v4/pkg/onelogin/models"
+	"github.com/UrbanCompass/onelogin-go-sdk-compass/v4/pkg/onelogin"
 )
 
 func main() {
@@ -157,8 +157,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/onelogin/onelogin-go-sdk/v4/pkg/onelogin/models"
-	"github.com/onelogin/onelogin-go-sdk/v4/pkg/onelogin"
+	"github.com/UrbanCompass/onelogin-go-sdk-compass/v4/pkg/onelogin/models"
+	"github.com/UrbanCompass/onelogin-go-sdk-compass/v4/pkg/onelogin"
 )
 
 func main() {

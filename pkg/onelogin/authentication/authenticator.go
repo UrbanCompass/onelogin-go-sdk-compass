@@ -9,7 +9,7 @@ import (
 	"os"
 	"strings"
 
-	olError "github.com/onelogin/onelogin-go-sdk/v4/pkg/onelogin/error"
+	olError "github.com/UrbanCompass/onelogin-go-sdk-compass/v4/pkg/onelogin/error"
 )
 
 const (

@@ -8,8 +8,8 @@ import (
 	"net/url"
 	"strings"
 
+	olerror "github.com/UrbanCompass/onelogin-go-sdk-compass/v4/pkg/onelogin/error"
 	querystring "github.com/google/go-querystring/query"
-	olerror "github.com/onelogin/onelogin-go-sdk/v4/pkg/onelogin/error"
 )
 
 // receive http response, check error code status, if good return json of resp.Body

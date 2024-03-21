@@ -40,7 +40,7 @@ This is the Onelogin SDK, a Go package that provides a convenient interface for 
 To use the Onelogin SDK in your Go project, you need to have Go installed and set up. Then, you can install the SDK using the `go get` command:
 
 ```shell
-go get github.com/onelogin/onelogin-go-sdk
+go get github.com/UrbanCompass/onelogin-go-sdk-compass
 ```
 
 ## Requirements
@@ -84,8 +84,8 @@ package main
 import (
  "fmt"
 
- "github.com/onelogin/onelogin-go-sdk/v4/pkg/onelogin/models"
- "github.com/onelogin/onelogin-go-sdk/v4/pkg/onelogin"
+ "github.com/UrbanCompass/onelogin-go-sdk-compass/v4/pkg/onelogin/models"
+ "github.com/UrbanCompass/onelogin-go-sdk-compass/v4/pkg/onelogin"
 )
 
 func main() {

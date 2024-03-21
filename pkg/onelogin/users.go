@@ -5,8 +5,8 @@ import (
 	"encoding/json"
 	"errors"
 
-	mod "github.com/onelogin/onelogin-go-sdk/v4/pkg/onelogin/models"
-	utl "github.com/onelogin/onelogin-go-sdk/v4/pkg/onelogin/utilities"
+	mod "github.com/UrbanCompass/onelogin-go-sdk-compass/v4/pkg/onelogin/models"
+	utl "github.com/UrbanCompass/onelogin-go-sdk-compass/v4/pkg/onelogin/utilities"
 )
 
 const (
