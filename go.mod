@@ -1,4 +1,4 @@
-module github.com/onelogin/onelogin-go-sdk/v4
+module github.com/UrbanCompass/onelogin-go-sdk-compass/v4
 
 go 1.18
 
