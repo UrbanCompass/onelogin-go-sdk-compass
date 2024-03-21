@@ -2,14 +2,14 @@ package models
 
 // UserMappingsQuery represents available query parameters for mappings
 type UserMappingsQuery struct {
-	Limit            string `json:"limit,omitempty"`
-	Page             string `json:"page,omitempty"`
-	Cursor           string `json:"cursor,omitempty"`
-	HasCondition     string `json:"has_condition,omitempty"`
-	HasConditionType string `json:"has_condition_type,omitempty"`
-	HasAction        string `json:"has_action,omitempty"`
-	HasActionType    string `json:"has_action_type,omitempty"`
-	Enabled          string `json:"enabled,omitempty"`
+	Limit            string `url:"limit,omitempty"`
+	Page             string `url:"page,omitempty"`
+	Cursor           string `url:"cursor,omitempty"`
+	HasCondition     string `url:"has_condition,omitempty"`
+	HasConditionType string `url:"has_condition_type,omitempty"`
+	HasAction        string `url:"has_action,omitempty"`
+	HasActionType    string `url:"has_action_type,omitempty"`
+	Enabled          string `url:"enabled,omitempty"`
 }
 
 // UserMapping is the contract for User Mappings.
