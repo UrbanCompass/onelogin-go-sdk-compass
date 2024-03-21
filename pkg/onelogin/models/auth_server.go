@@ -1,10 +1,10 @@
 package models
 
 type AuthServerQuery struct {
-	Name   string `json:"name,omitempty"`
-	Limit  string `json:"limit,omitempty"`
-	Page   string `json:"page,omitempty"`
-	Cursor string `json:"cursor,omitempty"`
+	Name   string `url:"name,omitempty"`
+	Limit  string `url:"limit,omitempty"`
+	Page   string `url:"page,omitempty"`
+	Cursor string `url:"cursor,omitempty"`
 }
 
 type AuthServer struct {
@@ -22,7 +22,7 @@ type AuthServerConfiguration struct {
 }
 
 type ClientAppsQuery struct {
-	ID int `json:"id,omitempty"`
+	ID int `url:"id,omitempty"`
 }
 
 type ClientApp struct {
@@ -35,7 +35,7 @@ type ClientApp struct {
 }
 
 type ScopesQuery struct {
-	ID int `json:"id,omitempty"`
+	ID int `url:"id,omitempty"`
 }
 
 type Scope struct {
@@ -46,7 +46,7 @@ type Scope struct {
 }
 
 type AccessTokenClaimsQuery struct {
-	ID int `json:"id,omitempty"`
+	ID int `url:"id,omitempty"`
 }
 
 type AccessTokenClaim struct {
