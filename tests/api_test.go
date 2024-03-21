@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/onelogin/onelogin-go-sdk/v4/pkg/onelogin/api"
-	"github.com/onelogin/onelogin-go-sdk/v4/pkg/onelogin/authentication"
+	"github.com/UrbanCompass/onelogin-go-sdk-compass/v4/pkg/onelogin/api"
+	"github.com/UrbanCompass/onelogin-go-sdk-compass/v4/pkg/onelogin/authentication"
 )
 
 type MockHttpClient struct {
