@@ -28,7 +28,7 @@ func ValidateQueryParams(query interface{}, validators map[string]func(interface
 			continue
 		}
 
-		fieldName := strings.Split(fieldType.Tag.Get("json"), ",")[0]
+		fieldName := strings.Split(fieldType.Tag.Get("url"), ",")[0]
 
 		validator, exists := validators[fieldName]
 		if exists {
