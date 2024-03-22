@@ -21,6 +21,18 @@ func (sdk *OneloginSDK) ListMappings() (interface{}, error) {
 	return utl.CheckHTTPResponse(resp)
 }
 
+func (sdk *OneloginSDK) ListMappingsWithCursor(queryParams mod.Queryable) (interface{}, *string, error) {
+	p, err := utl.BuildAPIPath(MappingsPath)
+	if err != nil {
+		return nil, nil, err
+	}
+	resp, err := sdk.Client.Get(&p, nil)
+	if err != nil {
+		return nil, nil, err
+	}
+	return utl.CheckHTTPResponseWithCursor(resp)
+}
+
 func (sdk *OneloginSDK) CreateMapping(mapping mod.UserMapping) (interface{}, error) {
 	p, err := utl.BuildAPIPath(MappingsPath)
 	if err != nil {
