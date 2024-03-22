@@ -19,7 +19,7 @@ func (sdk *OneloginSDK) GetGroupByID(groupID int) (interface{}, error) {
 }
 
 func (sdk *OneloginSDK) GetGroups() (interface{}, error) {
-	p, err := utl.BuildAPIPath(GroupsPath, groupID)
+	p, err := utl.BuildAPIPath(GroupsPath)
 	if err != nil {
 		return nil, err
 	}
