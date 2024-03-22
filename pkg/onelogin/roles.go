@@ -32,7 +32,10 @@ func (sdk *OneloginSDK) GetRoles(queryParams mod.Queryable) (interface{}, error)
 }
 
 func (sdk *OneloginSDK) GetRolesWithCursor(queryParams mod.Queryable) (interface{}, *string, error) {
-	p := RolePath
+	p, err := utl.BuildAPIPath(RolePath)
+	if err != nil {
+		return nil, nil, err
+	}
 	resp, err := sdk.Client.Get(&p, queryParams)
 	if err != nil {
 		return nil, nil, err
