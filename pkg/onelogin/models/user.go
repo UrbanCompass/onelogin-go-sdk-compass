@@ -78,7 +78,7 @@ type User struct {
 	TrustedIDPID         int32                  `json:"trusted_idp_id,omitempty"`
 	ManagerADID          int32                  `json:"manager_ad_id,omitempty"`
 	ManagerUserID        int32                  `json:"manager_user_id,omitempty"`
-	ExternalID           int32                  `json:"external_id,omitempty"`
+	ExternalID           string                 `json:"external_id,omitempty"`
 	ID                   int32                  `json:"id,omitempty"`
 	CustomAttributes     map[string]interface{} `json:"custom_attributes,omitempty"`
 }
