@@ -113,7 +113,7 @@ func (sdk *OneloginSDK) GetAppRules(id int, queryParams mod.Queryable) (interfac
 }
 
 func (sdk *OneloginSDK) GetAppRulesWithCursor(id int, queryParams mod.Queryable) (interface{}, *string, error) {
-	p, err := utl.BuildAPIPath(AppPath, id)
+	p, err := utl.BuildAPIPath(AppPath, id, "rules")
 	if err != nil {
 		return nil, nil, err
 	}
