@@ -38,11 +38,11 @@ func (sdk *OneloginSDK) GetApps(queryParams mod.Queryable) (interface{}, error) 
 func (sdk *OneloginSDK) GetAppsWithCursor(queryParams mod.Queryable) (interface{}, *string, error) {
 	p, err := utl.BuildAPIPath(AppPath)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 	resp, err := sdk.Client.Get(&p, queryParams)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 	return utl.CheckHTTPResponseWithCursor(resp)
 }
@@ -115,11 +115,11 @@ func (sdk *OneloginSDK) GetAppRules(id int, queryParams mod.Queryable) (interfac
 func (sdk *OneloginSDK) GetAppRulesWithCursor(id int, queryParams mod.Queryable) (interface{}, *string, error) {
 	p, err := utl.BuildAPIPath(AppPath, id)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 	resp, err := sdk.Client.Get(&p, queryParams)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 	return utl.CheckHTTPResponseWithCursor(resp)
 
