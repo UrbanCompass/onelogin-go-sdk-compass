@@ -64,27 +64,27 @@ type AccessTokenClaim struct {
 
 func (q *AuthServerQuery) GetKeyValidators() map[string]func(interface{}) bool {
 	return map[string]func(interface{}) bool{
-		"name":   validateString,
-		"limit":  validateString,
-		"page":   validateString,
-		"cursor": validateString,
+		"name":   ValidateString,
+		"limit":  ValidateString,
+		"page":   ValidateString,
+		"cursor": ValidateString,
 	}
 }
 
 func (q *ClientAppsQuery) GetKeyValidators() map[string]func(interface{}) bool {
 	return map[string]func(interface{}) bool{
-		"auth_server_id": validateString,
+		"auth_server_id": ValidateString,
 	}
 }
 
 func (q *ScopesQuery) GetKeyValidators() map[string]func(interface{}) bool {
 	return map[string]func(interface{}) bool{
-		"auth_server_id": validateString,
+		"auth_server_id": ValidateString,
 	}
 }
 
 func (q *AccessTokenClaimsQuery) GetKeyValidators() map[string]func(interface{}) bool {
 	return map[string]func(interface{}) bool{
-		"auth_server_id": validateString,
+		"auth_server_id": ValidateString,
 	}
 }

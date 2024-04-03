@@ -129,11 +129,11 @@ type AppQuery struct {
 
 func (q *AppQuery) GetKeyValidators() map[string]func(interface{}) bool {
 	return map[string]func(interface{}) bool{
-		"limit":        validateString,
-		"page":         validateString,
-		"cursor":       validateString,
-		"name":         validateString,
-		"connector_id": validateInt,
-		"auth_method":  validateInt,
+		"limit":        ValidateString,
+		"page":         ValidateString,
+		"cursor":       ValidateString,
+		"name":         ValidateString,
+		"connector_id": ValidateInt,
+		"auth_method":  ValidateInt,
 	}
 }

@@ -23,25 +23,30 @@ const (
 
 // UserQuery represents available query parameters
 type UserQuery struct {
-	Limit          string     `url:"limit,omitempty"`
-	Page           string     `url:"page,omitempty"`
-	Cursor         string     `url:"cursor,omitempty"`
-	CreatedSince   *time.Time `url:"created_since,omitempty"`
-	CreatedUntil   *time.Time `url:"created_until,omitempty"`
-	UpdatedSince   *time.Time `url:"updated_since,omitempty"`
-	UpdatedUntil   *time.Time `url:"updated_until,omitempty"`
-	LastLoginSince *time.Time `url:"last_login_since,omitempty"`
-	LastLoginUntil *time.Time `url:"last_login_until,omitempty"`
-	Firstname      *string    `url:"firstname,omitempty"`
-	Lastname       *string    `url:"lastname,omitempty"`
-	Email          *string    `url:"email,omitempty"`
-	Username       *string    `url:"username,omitempty"`
-	Samaccountname *string    `url:"samaccountname,omitempty"`
-	DirectoryID    *string    `url:"directory_id,omitempty"`
-	ExternalID     *string    `url:"external_id,omitempty"`
-	AppID          *string    `url:"app_id,omitempty"`
-	UserIDs        *string    `url:"user_ids,omitempty"`
-	Fields         *string    `url:"fields,omitempty"`
+	Limit           string     `url:"limit,omitempty"`
+	Page            string     `url:"page,omitempty"`
+	Cursor          string     `url:"cursor,omitempty"`
+	CreatedSince    *time.Time `url:"created_since,omitempty"`
+	CreatedUntil    *time.Time `url:"created_until,omitempty"`
+	UpdatedSince    *time.Time `url:"updated_since,omitempty"`
+	UpdatedUntil    *time.Time `url:"updated_until,omitempty"`
+	LastLoginSince  *time.Time `url:"last_login_since,omitempty"`
+	LastLoginUntil  *time.Time `url:"last_login_until,omitempty"`
+	Firstname       *string    `url:"firstname,omitempty"`
+	Lastname        *string    `url:"lastname,omitempty"`
+	Email           *string    `url:"email,omitempty"`
+	Username        *string    `url:"username,omitempty"`
+	Samaccountname  *string    `url:"samaccountname,omitempty"`
+	DirectoryID     *string    `url:"directory_id,omitempty"`
+	ExternalID      *string    `url:"external_id,omitempty"`
+	AppID           *string    `url:"app_id,omitempty"`
+	ID              *int32     `url:"id,omitempty"` // api v1 only
+	UserIDs         *string    `url:"user_ids,omitempty"` // api v2 only
+	Fields          *string    `url:"fields,omitempty"`
+	// OneLogin does not support querying users by group name.
+	// Create a Custom User Field named `group_name`.
+	// Create a user mapping for each group to set `group_name` to the group name.
+	CustomGroupName *string    `url:"custom_attributes.group_name,omitempty"`
 }
 
 // User represents a OneLogin User
@@ -85,25 +90,26 @@ type User struct {
 
 func (q *UserQuery) GetKeyValidators() map[string]func(interface{}) bool {
 	return map[string]func(interface{}) bool{
-		"limit":          validateString,
-		"page":           validateString,
-		"cursor":         validateString,
-		"createdSince":   validateTime,
-		"createdUntil":   validateTime,
-		"updatedSince":   validateTime,
-		"updatedUntil":   validateTime,
-		"lastLoginSince": validateTime,
-		"lastLoginUntil": validateTime,
-		"firstname":      validateString,
-		"lastname":       validateString,
-		"email":          validateString,
-		"username":       validateString,
-		"samaccountname": validateString,
-		"directoryID":    validateString,
-		"externalID":     validateString,
-		"appID":          validateString,
-		"userIDs":        validateString,
-		"fields":         validateString,
+		"limit":          ValidateString,
+		"page":           ValidateString,
+		"cursor":         ValidateString,
+		"createdSince":   ValidateTime,
+		"createdUntil":   ValidateTime,
+		"updatedSince":   ValidateTime,
+		"updatedUntil":   ValidateTime,
+		"lastLoginSince": ValidateTime,
+		"lastLoginUntil": ValidateTime,
+		"firstname":      ValidateString,
+		"lastname":       ValidateString,
+		"email":          ValidateString,
+		"username":       ValidateString,
+		"samaccountname": ValidateString,
+		"directoryID":    ValidateString,
+		"externalID":     ValidateString,
+		"appID":          ValidateString,
+		"ID":             ValidateInt,
+		"userIDs":        ValidateString,
+		"fields":         ValidateString,
 	}
 }
 

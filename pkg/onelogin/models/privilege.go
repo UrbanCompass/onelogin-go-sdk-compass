@@ -32,8 +32,8 @@ type StatementData struct {
 
 func (p *Privilege) GetKeyValidators() map[string]func(interface{}) bool {
 	return map[string]func(interface{}) bool{
-		"limit":  validateString,
-		"page":   validateString,
-		"cursor": validateString,
+		"limit":  ValidateString,
+		"page":   ValidateString,
+		"cursor": ValidateString,
 	}
 }
