@@ -8,8 +8,8 @@ type Queryable interface {
 	GetKeyValidators() map[string]func(interface{}) bool
 }
 
-// validateString checks if the provided value is a string.
-func validateString(val interface{}) bool {
+// ValidateString checks if the provided value is a string.
+func ValidateString(val interface{}) bool {
 	switch v := val.(type) {
 	case string:
 		return true
@@ -20,8 +20,8 @@ func validateString(val interface{}) bool {
 	}
 }
 
-// validateTime checks if the provided value is a time.Time.
-func validateTime(val interface{}) bool {
+// ValidateString checks if the provided value is a time.Time.
+func ValidateTime(val interface{}) bool {
 	switch v := val.(type) {
 	case time.Time:
 		return true
@@ -32,8 +32,8 @@ func validateTime(val interface{}) bool {
 	}
 }
 
-// validateInt checks if the provided value is an int.
-func validateInt(val interface{}) bool {
+// ValidateInt checks if the provided value is an int.
+func ValidateInt(val interface{}) bool {
 	switch v := val.(type) {
 	case int:
 		return true
@@ -44,8 +44,8 @@ func validateInt(val interface{}) bool {
 	}
 }
 
-// validateBool checks if the provided value is a bool.
-func validateBool(val interface{}) bool {
+// ValidateBool checks if the provided value is a bool.
+func ValidateBool(val interface{}) bool {
 	switch v := val.(type) {
 	case bool:
 		return true

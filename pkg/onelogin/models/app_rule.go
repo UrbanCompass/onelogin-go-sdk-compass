@@ -37,13 +37,13 @@ type AppRuleQuery struct {
 
 func (q *AppRuleQuery) GetKeyValidators() map[string]func(interface{}) bool {
 	return map[string]func(interface{}) bool{
-		"limit":              validateString,
-		"page":               validateString,
-		"cursor":             validateString,
-		"enabled":            validateBool,
-		"has_condition":      validateString,
-		"has_condition_type": validateString,
-		"has_action":         validateString,
-		"has_action_type":    validateString,
+		"limit":              ValidateString,
+		"page":               ValidateString,
+		"cursor":             ValidateString,
+		"enabled":            ValidateBool,
+		"has_condition":      ValidateString,
+		"has_condition_type": ValidateString,
+		"has_action":         ValidateString,
+		"has_action_type":    ValidateString,
 	}
 }
