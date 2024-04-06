@@ -23,6 +23,14 @@ type App struct {
 	EnforcementPoint   *EnforcementPoint     `json:"enforcement_point,omitempty"`
 }
 
+type AppUser struct {
+	ID        *int32   `json:"id,omitempty"`
+	Firstname *string  `json:"firstname,omitempty"`
+	Lastname  *string  `json:"lastname,omitempty"`
+	Email     *string  `json:"email,omitempty"`
+	Username  *string  `json:"username,omitempty"`
+}
+
 type Provisioning struct {
 	Enabled bool `json:"enabled"`
 }
