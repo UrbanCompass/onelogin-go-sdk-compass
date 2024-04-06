@@ -174,3 +174,15 @@ func (sdk *OneloginSDK) GetAppUsers(appID int) (interface{}, error) {
 	}
 	return utl.CheckHTTPResponse(resp)
 }
+
+func (sdk *OneloginSDK) GetAppUsersWithCursor(appID int, queryParams mod.Queryable) (interface{}, *string, error) {
+	p, err := utl.BuildAPIPath(AppPath, appID, "users")
+	if err != nil {
+		return nil, nil, err
+	}
+	resp, err := sdk.Client.Get(&p, queryParams)
+	if err != nil {
+		return nil, nil, err
+	}
+	return utl.CheckHTTPResponseWithCursor(resp)
+}
