@@ -26,6 +26,7 @@ type UserQuery struct {
 	Limit           string     `url:"limit,omitempty"`
 	Page            string     `url:"page,omitempty"`
 	Cursor          string     `url:"cursor,omitempty"`
+	AfterCursor     string     `url:"after_cursor,omitempty"`
 	CreatedSince    *time.Time `url:"created_since,omitempty"`
 	CreatedUntil    *time.Time `url:"created_until,omitempty"`
 	UpdatedSince    *time.Time `url:"updated_since,omitempty"`
@@ -93,6 +94,7 @@ func (q *UserQuery) GetKeyValidators() map[string]func(interface{}) bool {
 		"limit":          ValidateString,
 		"page":           ValidateString,
 		"cursor":         ValidateString,
+		"after_cursor":   ValidateString,
 		"createdSince":   ValidateTime,
 		"createdUntil":   ValidateTime,
 		"updatedSince":   ValidateTime,
