@@ -17,10 +17,19 @@ const (
 	RevokePath string = "/auth/oauth2/revoke"
 )
 
+type AuthenticatorAPI interface {
+	GenerateToken() error
+	RevokeToken(token *string) error
+	GetToken() (string, error)
+}
+
 type Authenticator struct {
 	accessToken string
 	subdomain   string
 }
+
+// Assert that the implementation satisfies the interface.
+var _ AuthenticatorAPI = &Authenticator{}
 
 func NewAuthenticator(subdomain string) *Authenticator {
 	return &Authenticator{subdomain: subdomain}
