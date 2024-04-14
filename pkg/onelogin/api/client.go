@@ -20,21 +20,15 @@ import (
 
 // Client represents the API client.
 type Client struct {
-	HttpClient HTTPClient                    // HTTPClient interface for making HTTP requests
-	Auth       *authentication.Authenticator // Authenticator for managing authentication
-	OLdomain   string                        // OneLogin domain
+	HttpClient HTTPClient                      // HTTPClient interface for making HTTP requests
+	Auth       authentication.AuthenticatorAPI // Authenticator for managing authentication
+	OLdomain   string                          // OneLogin domain
 	Timeout    time.Duration
 }
 
 // HTTPClient is an interface that defines the Do method for making HTTP requests.
 type HTTPClient interface {
 	Do(req *http.Request) (*http.Response, error)
-}
-
-// Authenticator is an interface that defines the GetToken method for retrieving authentication tokens.
-type Authenticator interface {
-	GetToken() (string, error)
-	NewAuthenticator() *authentication.Authenticator
 }
 
 // NewClient creates a new instance of the API client.
