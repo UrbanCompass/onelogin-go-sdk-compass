@@ -120,6 +120,7 @@ type UserApp struct {
 	ID                  *int32  `json:"id,omitempty"`
 	IconURL             *string `json:"icon_url,omitempty"`
 	LoginID             *int32  `json:"login_id,omitempty"`
+	Name                *string `json:"name,omitempty"`
 	ProvisioningStatus  *string `json:"provisioning_status,omitempty"`
 	ProvisioningState   *string `json:"provisioning_state,omitempty"`
 	ProvisioningEnabled *bool   `json:"provisioning_enabled,omitempty"`
