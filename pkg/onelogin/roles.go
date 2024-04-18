@@ -6,11 +6,12 @@ import (
 )
 
 var (
-	RolePath string = "api/2/roles"
+	RolePathV1 string = "api/1/roles"
+	RolePathV2 string = "api/2/roles"
 )
 
 func (sdk *OneloginSDK) CreateRole(role *mod.Role) (interface{}, error) {
-	p, err := utl.BuildAPIPath(RolePath)
+	p, err := utl.BuildAPIPath(RolePathV2)
 	if err != nil {
 		return nil, err
 	}
@@ -23,7 +24,21 @@ func (sdk *OneloginSDK) CreateRole(role *mod.Role) (interface{}, error) {
 
 // was ListRoles
 func (sdk *OneloginSDK) GetRoles(queryParams mod.Queryable) (interface{}, error) {
-	p := RolePath
+	p := RolePathV2
+	resp, err := sdk.Client.Get(&p, queryParams)
+	if err != nil {
+		return nil, err
+	}
+	return utl.CheckHTTPResponse(resp)
+}
+
+// was ListRoles
+func (sdk *OneloginSDK) GetRolesV1(queryParams mod.Queryable) (interface{}, error) {
+	p, err := utl.BuildAPIPath(RolePathV1)
+	if err != nil {
+		return nil, err
+	}
+
 	resp, err := sdk.Client.Get(&p, queryParams)
 	if err != nil {
 		return nil, err
@@ -32,7 +47,7 @@ func (sdk *OneloginSDK) GetRoles(queryParams mod.Queryable) (interface{}, error)
 }
 
 func (sdk *OneloginSDK) GetRolesWithCursor(queryParams mod.Queryable) (interface{}, *string, error) {
-	p, err := utl.BuildAPIPath(RolePath)
+	p, err := utl.BuildAPIPath(RolePathV2)
 	if err != nil {
 		return nil, nil, err
 	}
@@ -44,7 +59,7 @@ func (sdk *OneloginSDK) GetRolesWithCursor(queryParams mod.Queryable) (interface
 }
 
 func (sdk *OneloginSDK) GetRoleByID(id int, queryParams mod.Queryable) (interface{}, error) {
-	p, err := utl.BuildAPIPath(RolePath, id)
+	p, err := utl.BuildAPIPath(RolePathV2, id)
 	if err != nil {
 		return nil, err
 	}
@@ -56,7 +71,7 @@ func (sdk *OneloginSDK) GetRoleByID(id int, queryParams mod.Queryable) (interfac
 }
 
 func (sdk *OneloginSDK) UpdateRole(id int, role mod.Role, queryParams map[string]string) (interface{}, error) {
-	p, err := utl.BuildAPIPath(RolePath, id)
+	p, err := utl.BuildAPIPath(RolePathV2, id)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +83,7 @@ func (sdk *OneloginSDK) UpdateRole(id int, role mod.Role, queryParams map[string
 }
 
 func (sdk *OneloginSDK) DeleteRole(id int, queryParams map[string]string) (interface{}, error) {
-	p, err := utl.BuildAPIPath(RolePath, id)
+	p, err := utl.BuildAPIPath(RolePathV2, id)
 	if err != nil {
 		return nil, err
 	}
@@ -81,7 +96,7 @@ func (sdk *OneloginSDK) DeleteRole(id int, queryParams map[string]string) (inter
 
 // was ListRoleUsers
 func (sdk *OneloginSDK) GetRoleUsers(roleID int, queryParams mod.Queryable) (interface{}, error) {
-	p, err := utl.BuildAPIPath(RolePath, roleID, "users")
+	p, err := utl.BuildAPIPath(RolePathV2, roleID, "users")
 	if err != nil {
 		return nil, err
 	}
@@ -93,7 +108,7 @@ func (sdk *OneloginSDK) GetRoleUsers(roleID int, queryParams mod.Queryable) (int
 }
 
 func (sdk *OneloginSDK) AddRoleUsers(roleID int) (interface{}, error) {
-	p, err := utl.BuildAPIPath(RolePath, roleID, "users")
+	p, err := utl.BuildAPIPath(RolePathV2, roleID, "users")
 	if err != nil {
 		return nil, err
 	}
@@ -106,7 +121,7 @@ func (sdk *OneloginSDK) AddRoleUsers(roleID int) (interface{}, error) {
 
 // was removeRoleUsers
 func (sdk *OneloginSDK) DeleteRoleUsers(roleID int, users []int) (interface{}, error) {
-	p, err := utl.BuildAPIPath(RolePath, roleID, "users")
+	p, err := utl.BuildAPIPath(RolePathV2, roleID, "users")
 	if err != nil {
 		return nil, err
 	}
@@ -118,7 +133,7 @@ func (sdk *OneloginSDK) DeleteRoleUsers(roleID int, users []int) (interface{}, e
 }
 
 func (sdk *OneloginSDK) GetRoleAdmins(roleID int) (interface{}, error) {
-	p, err := utl.BuildAPIPath(RolePath, roleID, "admins")
+	p, err := utl.BuildAPIPath(RolePathV2, roleID, "admins")
 	if err != nil {
 		return nil, err
 	}
@@ -130,7 +145,7 @@ func (sdk *OneloginSDK) GetRoleAdmins(roleID int) (interface{}, error) {
 }
 
 func (sdk *OneloginSDK) AddRoleAdmins(roleID int) (interface{}, error) {
-	p, err := utl.BuildAPIPath(RolePath, roleID, "admins")
+	p, err := utl.BuildAPIPath(RolePathV2, roleID, "admins")
 	if err != nil {
 		return nil, err
 	}
@@ -143,7 +158,7 @@ func (sdk *OneloginSDK) AddRoleAdmins(roleID int) (interface{}, error) {
 
 // was removeRoleAdmins
 func (sdk *OneloginSDK) DeleteRoleAdmins(roleID int, admins []int) (interface{}, error) {
-	p, err := utl.BuildAPIPath(RolePath, roleID, "admins")
+	p, err := utl.BuildAPIPath(RolePathV2, roleID, "admins")
 	if err != nil {
 		return nil, err
 	}
@@ -155,7 +170,7 @@ func (sdk *OneloginSDK) DeleteRoleAdmins(roleID int, admins []int) (interface{},
 }
 
 func (sdk *OneloginSDK) GetRoleApps(roleID int) (interface{}, error) {
-	p, err := utl.BuildAPIPath(RolePath, roleID, "apps")
+	p, err := utl.BuildAPIPath(RolePathV2, roleID, "apps")
 	if err != nil {
 		return nil, err
 	}
@@ -168,7 +183,7 @@ func (sdk *OneloginSDK) GetRoleApps(roleID int) (interface{}, error) {
 
 // was setRoleApps
 func (sdk *OneloginSDK) UpdateRoleApps(roleID int, apps []int) (interface{}, error) {
-	p, err := utl.BuildAPIPath(RolePath, roleID, "apps")
+	p, err := utl.BuildAPIPath(RolePathV2, roleID, "apps")
 	if err != nil {
 		return nil, err
 	}
