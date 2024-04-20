@@ -7,7 +7,20 @@ import (
 
 const (
 	APIAuthPath string = "api/2/api_authorizations"
+	APIRateLimitPath string = "auth/rate_limit"
 )
+
+func (sdk *OneloginSDK) GetRateLimit() (interface{}, error) {
+	p, err := utl.BuildAPIPath(APIRateLimitPath)
+	if err != nil {
+		return nil, err
+	}
+	resp, err := sdk.Client.Get(&p, nil)
+	if err != nil {
+		return nil, err
+	}
+	return utl.CheckHTTPResponse(resp)
+}
 
 func (sdk *OneloginSDK) CreateAuthServer(authServer *mod.AuthServer) (interface{}, error) {
 	p, err := utl.BuildAPIPath(APIAuthPath)
