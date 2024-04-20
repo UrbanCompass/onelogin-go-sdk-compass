@@ -21,6 +21,12 @@ type AuthServerConfiguration struct {
 	RefreshTokenExpirationMinutes *int32   `json:"refresh_token_expiration_minutes,omitempty"`
 }
 
+type RateLimit struct {
+	XRateLimitLimit     int `json:"X-RateLimit-Limit"`
+	XRateLimitRemaining int `json:"X-RateLimit-Remaining"`
+	XRateLimitReset     int `json:"X-RateLimit-Reset"`
+}
+
 type ClientAppsQuery struct {
 	ID int `url:"id,omitempty"`
 }
