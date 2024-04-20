@@ -104,4 +104,5 @@ var validPaths = []string{
 	"^/api/2/branding/email_settings/test$",
 	"^/api/2/branding/brands/[0-9]+/templates/[a-zA-Z]+/[a-zA-Z]+$",
 	"^/api/2/branding/brands/master/templates/[a-zA-Z]+$",
+	"^/auth/rate_limit$",
 }
