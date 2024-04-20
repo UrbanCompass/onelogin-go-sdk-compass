@@ -22,9 +22,9 @@ type AuthServerConfiguration struct {
 }
 
 type RateLimit struct {
-	XRateLimitLimit     int `json:"X-RateLimit-Limit"`
-	XRateLimitRemaining int `json:"X-RateLimit-Remaining"`
-	XRateLimitReset     int `json:"X-RateLimit-Reset"`
+	Limit     int `json:"X-RateLimit-Limit"`
+	Remaining int `json:"X-RateLimit-Remaining"`
+	Reset     int `json:"X-RateLimit-Reset"`
 }
 
 type ClientAppsQuery struct {
