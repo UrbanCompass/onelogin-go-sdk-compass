@@ -2,6 +2,7 @@ package models
 
 // RoleQuery represents available query parameters
 type RoleQuery struct {
+	Fields      string `url:"fields,omitempty"`
 	Limit       string `url:"limit,omitempty"`
 	Page        string `url:"page,omitempty"`
 	AfterCursor string `url:"after_cursor,omitempty"`
@@ -19,8 +20,9 @@ type Role struct {
 
 func (r *RoleQuery) GetKeyValidators() map[string]func(interface{}) bool {
 	return map[string]func(interface{}) bool{
-		"limit":  ValidateString,
-		"page":   ValidateString,
-		"cursor": ValidateString,
+		"fields":  ValidateString,
+		"limit":   ValidateString,
+		"page":    ValidateString,
+		"cursor":  ValidateString,
 	}
 }
