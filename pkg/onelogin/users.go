@@ -239,12 +239,17 @@ func (sdk *OneloginSDK) SetUserState(userID, state int) (interface{}, error) {
 	return utl.CheckHTTPResponse(resp)
 }
 
-func (sdk *OneloginSDK) RemoveUserRole(userID int) (interface{}, error) {
+func (sdk *OneloginSDK) RemoveUserRole(userID int, roles []int) (interface{}, error) {
 	p, err := utl.BuildAPIPath(UserPathV1, userID, "remove_roles")
 	if err != nil {
 		return nil, err
 	}
-	resp, err := sdk.Client.Put(&p, nil)
+	payload := map[string][]int{"role_id_array": roles}
+	payloadBytes, err := json.Marshal(payload)
+	if err != nil {
+		return nil, err
+	}
+	resp, err := sdk.Client.Put(&p, bytes.NewBuffer(payloadBytes))
 	if err != nil {
 		return nil, err
 	}
