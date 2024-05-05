@@ -138,7 +138,7 @@ type OneloginSDKAPI interface {
 	LogOutUser(userID int) (interface{}, error)
 	AssignRolesToUser(userID int, roles []int) (interface{}, error)
 	SetUserState(userID, state int) (interface{}, error)
-	RemoveUserRole(userID int) (interface{}, error)
+	RemoveUserRoles(userID int, roles []int) (interface{}, error)
 	GetCustomAttributes() (interface{}, error)
 	SetCustomAttributes(userID int, attr interface{}) (interface{}, error)
 }
