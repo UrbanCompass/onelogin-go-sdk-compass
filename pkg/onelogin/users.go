@@ -239,7 +239,7 @@ func (sdk *OneloginSDK) SetUserState(userID, state int) (interface{}, error) {
 	return utl.CheckHTTPResponse(resp)
 }
 
-func (sdk *OneloginSDK) RemoveUserRole(userID int, roles []int) (interface{}, error) {
+func (sdk *OneloginSDK) RemoveUserRoles(userID int, roles []int) (interface{}, error) {
 	p, err := utl.BuildAPIPath(UserPathV1, userID, "remove_roles")
 	if err != nil {
 		return nil, err
