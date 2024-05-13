@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io"
 	"log"
+	"log/slog"
 	"net/http"
 	"net/url"
 	"os"
@@ -63,7 +64,7 @@ func (c *Client) newRequest(method string, path *string, queryParams mod.Queryab
 	if err != nil {
 		return nil, err
 	}
-	log.Println("Path:", p)
+	slog.Debug("Path:", p)
 	// Parse the OneLogin domain and path
 	u, err := url.Parse(c.OLdomain + p)
 	if err != nil {
@@ -77,13 +78,13 @@ func (c *Client) newRequest(method string, path *string, queryParams mod.Queryab
 	}
 
 	// Get authentication token
-	log.Println("Getting authentication token...")
+	slog.Debug("Getting authentication token...")
 	tk, err := c.Auth.GetToken()
 	if err != nil {
-		log.Println("Error getting authentication token:", err)
+		slog.Debug("Error getting authentication token:", err)
 		return nil, olerror.NewAuthenticationError("Access Token Retrieval Error")
 	}
-	log.Println("Authentication token retrieved successfully.")
+	slog.Debug("Authentication token retrieved successfully.")
 
 	// Set request headers
 	req.Header.Set("Authorization", fmt.Sprintf("Bearer %s", tk))
