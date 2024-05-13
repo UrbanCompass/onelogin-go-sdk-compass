@@ -44,10 +44,14 @@ type UserQuery struct {
 	ID              *int32     `url:"id,omitempty"` // api v1 only
 	UserIDs         *string    `url:"user_ids,omitempty"` // api v2 only
 	Fields          *string    `url:"fields,omitempty"`
+
+	// TODO: Create a generic solution for querying custom attributes.
+	// Below is hard coded.
+
 	// OneLogin does not support querying users by group name.
 	// Create a Custom User Field named `group_name`.
 	// Create a user mapping for each group to set `group_name` to the group name.
-	CustomGroupName *string    `url:"custom_attributes.group_name,omitempty"`
+	CustomGroupName *string `url:"custom_attributes.group_name,omitempty"`
 }
 
 // User represents a OneLogin User
