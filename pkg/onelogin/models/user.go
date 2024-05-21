@@ -48,6 +48,9 @@ type UserQuery struct {
 	// TODO: Create a generic solution for querying custom attributes.
 	// Below is hard coded.
 
+	CustomAllowMigrate    *string `url:"custom_attributes.allow_migrate,omitempty"`
+	CustomMigrateDateOkta *string `url:"custom_attributes.migrate_date_okta,omitempty"`
+
 	// OneLogin does not support querying users by group name.
 	// Create a Custom User Field named `group_name`.
 	// Create a user mapping for each group to set `group_name` to the group name.
