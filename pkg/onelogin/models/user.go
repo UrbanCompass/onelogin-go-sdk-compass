@@ -76,13 +76,19 @@ type User struct {
 	Company              string                 `json:"company,omitempty"`
 	Department           string                 `json:"department,omitempty"`
 	Comment              string                 `json:"comment,omitempty"`
-	CreatedAt            time.Time              `json:"created_at,omitempty"`
-	UpdatedAt            time.Time              `json:"updated_at,omitempty"`
-	ActivatedAt          time.Time              `json:"activated_at,omitempty"`
-	LastLogin            time.Time              `json:"last_login,omitempty"`
-	PasswordChangedAt    time.Time              `json:"password_changed_at,omitempty"`
-	LockedUntil          time.Time              `json:"locked_until,omitempty"`
-	InvitationSentAt     time.Time              `json:"invitation_sent_at,omitempty"`
+
+	// TODO If needed, add a custom marshaler. Apparently OLI api does
+	//   allow at least LastLogin to be set via API in some cases.
+	//   Since this struct is used for PUTs, commenting these out for now.
+	//   https://stackoverflow.com/a/32646035
+	//   https://stackoverflow.com/a/60567000
+	//CreatedAt            time.Time              `json:"created_at,omitempty"`
+	//UpdatedAt            time.Time              `json:"updated_at,omitempty"`
+	//ActivatedAt          time.Time              `json:"activated_at,omitempty"`
+	//LastLogin            time.Time              `json:"last_login,omitempty"`
+	//PasswordChangedAt    time.Time              `json:"password_changed_at,omitempty"`
+	//LockedUntil          time.Time              `json:"locked_until,omitempty"`
+	//InvitationSentAt     time.Time              `json:"invitation_sent_at,omitempty"`
 	State                int32                  `json:"state,omitempty"`
 	Status               int32                  `json:"status,omitempty"`
 	InvalidLoginAttempts int32                  `json:"invalid_login_attempts,omitempty"`
@@ -102,12 +108,12 @@ func (q *UserQuery) GetKeyValidators() map[string]func(interface{}) bool {
 		"page":           ValidateString,
 		"cursor":         ValidateString,
 		"after_cursor":   ValidateString,
-		"createdSince":   ValidateTime,
-		"createdUntil":   ValidateTime,
-		"updatedSince":   ValidateTime,
-		"updatedUntil":   ValidateTime,
-		"lastLoginSince": ValidateTime,
-		"lastLoginUntil": ValidateTime,
+		//"createdSince":   ValidateTime,
+		//"createdUntil":   ValidateTime,
+		//"updatedSince":   ValidateTime,
+		//"updatedUntil":   ValidateTime,
+		//"lastLoginSince": ValidateTime,
+		//"lastLoginUntil": ValidateTime,
 		"firstname":      ValidateString,
 		"lastname":       ValidateString,
 		"email":          ValidateString,
