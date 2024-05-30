@@ -122,14 +122,14 @@ type OneloginSDKAPI interface {
 	ListConditions() (interface{}, error)
 
 	// users
-	CreateUser(user mod.User) (interface{}, error)
+	CreateUser(user mod.UserWrite) (interface{}, error)
 	GetUsers(query mod.Queryable) (interface{}, error)
 	GetUsersWithCursor(query mod.Queryable) (interface{}, *string, error)
 	GetUsersV1(query mod.Queryable) (interface{}, error)
 	GetUserByID(id int, queryParams mod.Queryable) (interface{}, error)
 	GetUserByIDV1(id int, queryParams mod.Queryable) (interface{}, error)
 	GetUserApps(id int, queryParams mod.Queryable) (interface{}, error)
-	UpdateUser(id int, user mod.User) (interface{}, error)
+	UpdateUser(id int, user mod.UserWrite) (interface{}, error)
 	DeleteUser(id int) (interface{}, error)
 	UpdatePasswordSecure(id int) (interface{}, error)
 	UpdatePasswordInsecure(id int) (interface{}, error)
