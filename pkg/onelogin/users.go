@@ -15,7 +15,7 @@ const (
 )
 
 // Users V2
-func (sdk *OneloginSDK) CreateUser(user mod.User) (interface{}, error) {
+func (sdk *OneloginSDK) CreateUser(user mod.UserWrite) (interface{}, error) {
 	p, err := utl.BuildAPIPath(UserPathV2)
 	if err != nil {
 		return nil, err
@@ -124,7 +124,7 @@ func (sdk *OneloginSDK) GetUserApps(id int, queryParams mod.Queryable) (interfac
 	return utl.CheckHTTPResponse(resp)
 }
 
-func (sdk *OneloginSDK) UpdateUser(id int, user mod.User) (interface{}, error) {
+func (sdk *OneloginSDK) UpdateUser(id int, user mod.UserWrite) (interface{}, error) {
 	p, err := utl.BuildAPIPath(UserPathV2, id)
 	if err != nil {
 		return nil, err
