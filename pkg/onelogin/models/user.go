@@ -147,6 +147,17 @@ func (q *UserQuery) GetKeyValidators() map[string]func(interface{}) bool {
 	}
 }
 
+// UserAppsQuery represents available query parameters
+type UserAppsQuery struct {
+	IgnoreVisibility  *string `url:"ignore_visibility,omitempty"`
+}
+
+func (q *UserAppsQuery) GetKeyValidators() map[string]func(interface{}) bool {
+	return map[string]func(interface{}) bool{
+		"IgnoreVisibility": ValidateString,
+	}
+}
+
 // UserApp is the contract for a users app.
 type UserApp struct {
 	ID                  *int32  `json:"id,omitempty"`
