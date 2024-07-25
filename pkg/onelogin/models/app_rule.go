@@ -14,6 +14,11 @@ type Action struct {
 	Macro      string   `json:"macro,omitempty"`
 }
 
+type ActionValue struct {
+	Name  string `json:"name"`
+	Value string `json:"value"`
+}
+
 type AppRule struct {
 	AppID      int         `json:"app_id"`
 	Name       string      `json:"name"`
