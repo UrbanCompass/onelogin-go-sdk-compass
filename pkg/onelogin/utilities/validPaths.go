@@ -67,6 +67,7 @@ var validPaths = []string{
 	"^/api/2/apps/[0-9]+/rules/conditions/[a-zA-Z0-9]+/values$",
 	"^/api/2/apps/[0-9]+/rules/actions$",
 	"^/api/2/apps/[0-9]+/rules/actions/[a-zA-Z0-9]+/values$",
+	"^/api/2/apps/[0-9]+/rules/actions/.+/values$",
 	"^/api/2/apps/[0-9]+/rules/sort$",
 	"^/api/2/connectors$",
 	"^/api/2/risk/rules$",
